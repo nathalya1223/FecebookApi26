@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Fecebook Simples</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div class="header-logo">
+    <img src="/facebook-logotipo_1080029-107.jpg" alt="Logo Fecebook" class="logo" />
+    <h1>Fecebook</h1>
+  </div>
+
+  <div class="container">
+
+    <!-- Postar Texto -->
+    <div class="side texto">
+      <h2>Postar Texto</h2>
+      <form id="postFormText">
+        <textarea id="postContentText" placeholder="Escreva algo..." required></textarea><br />
+        <button type="submit" class="publish-btn">Publicar</button>
+      </form>
+
+      <h3>Feed de Texto</h3>
+      <div id="feedText"></div>
+    </div>
+
+    <!-- Postar Foto -->
+    <div class="side foto">
+      <h2>Postar Foto</h2>
+      <form id="postFormPhoto">
+        <textarea id="postContentPhoto" placeholder="Legenda da foto..." required></textarea><br />
+        <input type="file" id="postImage" accept="image/*" /><br />
+        <button type="submit" class="publish-btn">Publicar</button>
+      </form>
+
+      <h3>Feed de Fotos</h3>
+      <div id="feedPhoto"></div>
+    </div>
+
+  </div>
+
+  <script src="./fece.js"></script>
+</body>
+</html>

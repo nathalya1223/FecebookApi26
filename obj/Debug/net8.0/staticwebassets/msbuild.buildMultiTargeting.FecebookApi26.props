@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FecebookApi26.props" />
+</Project>
