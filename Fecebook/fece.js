@@ -1,6 +1,4 @@
-// fece.js
-
-// ---------- Função para criar post completo ----------
+// ---------- Função para criar post ----------
 function createPost(content, imageFile = null) {
   const postItem = document.createElement("div");
   postItem.classList.add("feed-item");
@@ -13,10 +11,15 @@ function createPost(content, imageFile = null) {
     <button class="minimize-btn">−</button>
   `;
 
-  // Conteúdo
+  // Corpo do post
   const body = document.createElement("div");
   body.classList.add("post-body");
-  body.innerHTML = `<p>${content}</p>`;
+
+  if (content) {
+    const textEl = document.createElement("p");
+    textEl.textContent = content;
+    body.appendChild(textEl);
+  }
 
   if (imageFile) {
     const imgURL = URL.createObjectURL(imageFile);
@@ -61,9 +64,7 @@ function createPost(content, imageFile = null) {
   });
 
   const commentArea = document.createElement("div");
-  commentArea.appendChild(commentInput);
-  commentArea.appendChild(sendComment);
-  commentArea.appendChild(commentBox);
+  commentArea.append(commentInput, sendComment, commentBox);
   commentArea.style.display = "none";
 
   commentBtn.addEventListener("click", () => {
@@ -89,48 +90,32 @@ function createPost(content, imageFile = null) {
   body.appendChild(actions);
   body.appendChild(commentArea);
 
-  // Minimizar/Expandir
+  // Minimizar
   header.querySelector(".minimize-btn").addEventListener("click", () => {
     body.classList.toggle("hidden");
     const btn = header.querySelector(".minimize-btn");
     btn.textContent = body.classList.contains("hidden") ? "+" : "−";
   });
 
-  postItem.appendChild(header);
-  postItem.appendChild(body);
-
+  postItem.append(header, body);
   return postItem;
 }
 
-// ---------- POST DE TEXTO ----------
-const postFormText = document.getElementById("postFormText");
-const postContentText = document.getElementById("postContentText");
-const feedText = document.getElementById("feedText");
-
-postFormText.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const content = postContentText.value.trim();
-  if (!content) return;
-
-  const post = createPost(content);
-  feedText.prepend(post);
-  postFormText.reset();
-});
-
-// ---------- POST DE FOTO ----------
-const postFormPhoto = document.getElementById("postFormPhoto");
-const postContentPhoto = document.getElementById("postContentPhoto");
+// ---------- POST ÚNICO (texto + foto) ----------
+const postForm = document.getElementById("postForm");
+const postContent = document.getElementById("postContent");
 const postImage = document.getElementById("postImage");
-const feedPhoto = document.getElementById("feedPhoto");
+const feed = document.getElementById("feed");
 
-postFormPhoto.addEventListener("submit", function (e) {
+postForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  const content = postContentPhoto.value.trim();
+  const content = postContent.value.trim();
   const file = postImage.files[0];
 
-  if (!content && !file) return;
+  if (!content && !file) return; // precisa pelo menos de texto ou imagem
 
   const post = createPost(content, file);
-  feedPhoto.prepend(post);
-  postFormPhoto.reset();
+  feed.prepend(post);
+  postForm.reset();
 });
+

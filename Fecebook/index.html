@@ -14,34 +14,21 @@
   </div>
 
   <div class="container">
-
-    <!-- Postar Texto -->
-    <div class="side texto">
-      <h2>Postar Texto</h2>
-      <form id="postFormText">
-        <textarea id="postContentText" placeholder="Escreva algo..." required></textarea><br />
-        <button type="submit" class="publish-btn">Publicar</button>
-      </form>
-
-      <h3>Feed de Texto</h3>
-      <div id="feedText"></div>
-    </div>
-
-    <!-- Postar Foto -->
-    <div class="side foto">
-      <h2>Postar Foto</h2>
-      <form id="postFormPhoto">
-        <textarea id="postContentPhoto" placeholder="Legenda da foto..." required></textarea><br />
+    <!-- Post único (texto + foto) -->
+    <div class="side post">
+      <h2>Criar Post e Postar Foto</h2>
+      <form id="postForm">
+        <textarea id="postContent" placeholder="Escreva algo..." required></textarea><br />
         <input type="file" id="postImage" accept="image/*" /><br />
         <button type="submit" class="publish-btn">Publicar</button>
       </form>
 
-      <h3>Feed de Fotos</h3>
-      <div id="feedPhoto"></div>
+      <h3>Feed</h3>
+      <div id="feed"></div>
     </div>
-
   </div>
 
   <script src="./fece.js"></script>
 </body>
 </html>
+

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FecebookApi26")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a82fe89af2e2425ef4af446dce9d884148b3f7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("FecebookApi26")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FecebookApi26")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
